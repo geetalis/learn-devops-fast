@@ -1,12 +1,10 @@
 pipeline { 
-
+	environment{ def dockerHome = tool 'Docker-Image'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"}
 	agent { docker { image 'maven:latest' } } 
 	
 	stages{
-stage('Initialize'){
-        def dockerHome = tool 'Docker-Image'
-        env.PATH = "${dockerHome}/bin:${env.PATH}"
-    }
+
 		stage('Build'){
 			steps{
 				sh 'mvn clean install'
