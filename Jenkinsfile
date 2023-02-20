@@ -1,7 +1,4 @@
 pipeline { 
-	environment{ 
-	def dockerHome = tool 'Docker-Image'
-        }
 	agent { docker { image 'maven:latest' } } 
 	
 	stages{
