@@ -1,6 +1,7 @@
 pipeline { 
-	environment{ def dockerHome = tool 'Docker-Image'
-        env.PATH = "${dockerHome}/bin:${env.PATH}"}
+	environment{ 
+	def dockerHome = tool 'Docker-Image'
+        }
 	agent { docker { image 'maven:latest' } } 
 	
 	stages{
