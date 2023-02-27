@@ -1,10 +1,11 @@
 pipeline { 
-	agent { docker { image 'maven:latest' } } 
+	agent { docker { image 'maven:amazoncorretto' } } 
 	
 	stages{
 
 		stage('Build'){
 			steps{
+				sh 'mvn --version'
 				sh 'mvn clean install'
 			}
 			post{
